@@ -1,0 +1,48 @@
+@import url(../variables.css);
+
+.menu__backdrop {
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--tesla-white);
+  padding: 80px 40px 20px;
+  width: 22.5%;
+  min-width: 280px;
+  transition: all 500ms ease;
+  /* Hide scrollbar for IE & Edge */
+  -ms-overflow-style: none; 
+  /* Hide scrollbar for Firefox */
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for Chrome, Safari, & Opera */
+.menu__backdrop::-webkit-scrollbar {
+  display: none;
+}
+
+.menu__links {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 25px;
+}
+
+.menu__list {
+  padding: 32px 0;
+}
+
+.menu__link {
+  color: var(--tesla-black);
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px;
+  color: var(--tesla-black);
+  transition: all 500ms ease;
+}
+
+.menu__link:hover {
+  background-color: var(--tesla-semiblack);
+  border-radius: 8px;
+}

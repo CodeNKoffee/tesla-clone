@@ -1,0 +1,45 @@
+@import url(../variables.css);
+
+.dashboard__elements {
+  margin-top: 64px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  gap: 50px;
+}
+
+.dashboard__element {
+  border: 1px solid var(--tesla-semiblack);
+  border-radius: 8px;
+  width: 350px;
+}
+
+.dashboard__element--img--wrapper,
+.dashboard__element--img {
+  border-top-right-radius:  6px;
+  border-top-left-radius:  6px;
+  width: 100%;
+}
+
+.dashboard__element--info {
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 8px;
+}
+
+.dashboard__element--title {
+  font-weight: 500;
+}
+
+.dashboard__element--para {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+
+
+

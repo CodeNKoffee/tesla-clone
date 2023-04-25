@@ -1,0 +1,40 @@
+.login__icon {
+  color: var(--teslla-grey);
+}
+
+.login__lang--txt {
+  margin-left: 8px;
+}
+
+.login__info {
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login__form {
+  width: 100%;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;;
+  align-items: left;
+}
+
+.login__form--field {
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.login__form--btn {
+  background-color: var(--tesla-blue);
+  color: var(--tesla-white);
+}
+
+.login__btn--create {
+  width: 100%;
+}

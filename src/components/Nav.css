@@ -1,0 +1,58 @@
+@import url(../variables.css);
+
+.nav__logo {
+  width: 120px;
+}
+
+.nav__container {
+  width: 100%;
+  padding: 8px 32px;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#sub__nav--container {
+  margin-top: 24px;
+  padding: 8px 48px;
+}
+
+.nav__link,
+.nav__link--hidden {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px;
+  color: var(--tesla-black);
+  transition: all 500ms ease;
+}
+
+.nav__list {
+  margin-left: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav__link:hover {
+  background-color: var(--tesla-semiblack);
+  border-radius: 8px;
+}
+
+.nav__menu--btn {
+  z-index: 3;
+  width: 56px;
+  transition: all 500ms ease;
+}
+
+.nav__menu--btn:hover {
+  cursor: pointer;
+}
+
+.nav__link--hidden {
+  color: transparent;
+  transition: all 100ms ease;
+}
+

@@ -1,0 +1,46 @@
+#landing {
+  background: url(../assets/modely.jpeg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  display: grid;
+  place-items: center;
+}
+
+.landing__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 525px;
+}
+
+.landing__info--txt {
+  text-align: center;
+  flex: 1;
+}
+
+.landing__title {
+  font-weight: 500;
+}
+
+.landing__sub-title {
+  text-decoration: underline;
+}
+
+.landing__btns {
+  display: flex;
+  gap: 25px;
+}
+
+.landing__btn--primary {
+  background-color: var(--tesla-grey);
+  color: var(--tesla-white);
+}
