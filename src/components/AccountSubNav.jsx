@@ -8,7 +8,7 @@ import { logout } from '../features/userSlice';
 const AccountSubNav = ({ user, isMenuOpen, setIsMenuOpen }) => {
 
   const dispatch = useDispatch()
-  const history = useHistory
+  const history = useHistory();
 
   const logoutOfApp = () => {
     auth.signOut()
@@ -45,7 +45,7 @@ const AccountSubNav = ({ user, isMenuOpen, setIsMenuOpen }) => {
             </Link>
           </li>
           <li className="nav__list">
-            <Link
+            <Link to=""
               onClick={logoutOfApp}
               className={isMenuOpen ?
                 "nav__link--hidden" : "nav__link"

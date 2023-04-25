@@ -38,10 +38,10 @@ const TeslaAccount = ({ user, isMenuOpen, setIsMenuOpen }) => {
               />
               <DashBoardElement
                 img={Teslas}
-                name="Tesla Solar Panel"
-                title="Order Tesla Panel"
-                para="Produce energy to power your Tesla life"
-                cta="View Solar"
+                name="Tesla Models"
+                title="Reserve a Car"
+                para="Browse our models"
+                cta="Shop Now"
               />
               <DashBoardElement
                 img={ThirdParty}

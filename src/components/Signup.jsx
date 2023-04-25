@@ -55,7 +55,7 @@ const Signup = () => {
   const handleSignUpClick = (event) => {
     event.preventDefault();
     (password === confirmPassword) ? (
-      createUserWithEmailAndPassword(auth, firstName,email, password)
+      createUserWithEmailAndPassword(auth, firstName, email, password)
         .then((userAuth) => {
           userAuth.user.updateProfile({
             displayName: firstName,
@@ -71,7 +71,7 @@ const Signup = () => {
         })
         .catch((error) => alert(error.message))
     ) : (
-      console.log("error.message")
+      alert("Passwords don't match")
     )
     // Dispatch action to sign up the user
   };
