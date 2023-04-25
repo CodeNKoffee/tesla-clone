@@ -1,10 +1,22 @@
 import React from 'react';
 import './Nav.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { auth } from '../firebase/init';
+import { logout } from '../features/userSlice';
 
 const AccountSubNav = ({ user, isMenuOpen, setIsMenuOpen }) => {
-  function logoutOfApp() {
-    console.log("Hello, Tesla")
+
+  const dispatch = useDispatch()
+  const history = useHistory
+
+  const logoutOfApp = () => {
+    auth.signOut()
+      .then(() => {
+        dispatch(logout())
+        history.push('/')
+      })
+      .catch((error) => alert(error.message))
   }
 
   return (

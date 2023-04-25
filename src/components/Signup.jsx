@@ -55,7 +55,7 @@ const Signup = () => {
   const handleSignUpClick = (event) => {
     event.preventDefault();
     (password === confirmPassword) ? (
-      createUserWithEmailAndPassword(auth, email, password)
+      createUserWithEmailAndPassword(auth, firstName,email, password)
         .then((userAuth) => {
           userAuth.user.updateProfile({
             displayName: firstName,

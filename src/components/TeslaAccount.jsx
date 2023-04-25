@@ -12,7 +12,7 @@ import AccountSubNav from './AccountSubNav';
 // import Nav from './Nav';
 // import NavLink from './ui/NavLink';
 
-const TeslaAccount = ({ isMenuOpen, setIsMenuOpen }) => {
+const TeslaAccount = ({ user, isMenuOpen, setIsMenuOpen }) => {
   return (
     <section id="tesla__account">
       <AccountNav
@@ -20,6 +20,7 @@ const TeslaAccount = ({ isMenuOpen, setIsMenuOpen }) => {
         setIsMenuOpen={setIsMenuOpen}
       />
       <AccountSubNav
+        user={user}
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
       />

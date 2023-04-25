@@ -1,19 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Login.css';
 import CredentialsNav from './CredentialsNav';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { login } from '../features/userSlice';
+import { useDispatch } from 'react-redux';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase/init';
 
-const Login = ({
-  signIn,
-  isEmpty,
-  setIsEmpty,
-  email,
-  setEmail,
-  password,
-  setPassword,
-  showPassword,
-  setShowPassword
-}) => {
+const Login = () => {
+  
+  const [isEmpty, setIsEmpty] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
     setIsEmpty(event.target.value === '');
@@ -35,6 +37,22 @@ const Login = ({
     console.log(`This is your password: ${password}`)
   }
 
+  const signIn = (e) => {
+    e.preventDefault();
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userAuth) => {
+        dispatch(login({
+          email: userAuth.user.email,
+          uid: userAuth.user.uid,
+          displayName: userAuth.user.displayName,
+        }))
+        history.push('/teslaaccount')
+      })
+      .catch((error) => alert(error.message))
+  }
+
+  
   useEffect(() => {
     console.log(email);
   }, [email]);

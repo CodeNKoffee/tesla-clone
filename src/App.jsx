@@ -16,34 +16,14 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/userSlice';
 import { auth } from './firebase/init';
-import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import TeslaAccount from './components/TeslaAccount';
 
 
 function App() {
   const user = useSelector(selectUser);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isEmpty, setIsEmpty] = useState(true);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
-  const history = useHistory();
-
-  const signIn = (e) => {
-    e.preventDefault();
-
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userAuth) => {
-        dispatch(login({
-          email: userAuth.user.email,
-          uid: userAuth.user.uid,
-          displayName: userAuth.user.displayName,
-        }))
-        history.push('/teslaaccount')
-      })
-      .catch((error) => alert(error.message))
-  }
 
   useEffect(() => {
     auth.onAuthStateChanged((userAuth) => {
@@ -76,17 +56,7 @@ function App() {
             {user ? (
                 <Redirect to="/teslaaccount" />
               ) : (
-                <Login
-                  signIn={signIn}
-                  isEmpty={isEmpty}
-                  setIsEmpty={setIsEmpty}
-                  email={email}
-                  setEmail={setEmail}
-                  password={password}
-                  setPassword={setPassword}
-                  showPassword={showPassword}
-                  setShowPassword={setShowPassword}
-                />
+                <Login />
               )
             }
           </Route>
@@ -99,6 +69,7 @@ function App() {
             ) : (
               <>
                 <TeslaAccount
+                  user={user}
                   isMenuOpen={isMenuOpen}
                   setIsMenuOpen={setIsMenuOpen}
                 />
