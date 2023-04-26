@@ -82,15 +82,13 @@ const Login = () => {
           <div className="row__column">
             <div className="login__info">
               <h1>Sign In</h1>
-              {notFound ? (
-                <p className="error__message">{notFound}</p>,
-                console.log(notFound),
-                setTimeout(() => {
-                  setNotFound(null)
-                  history.push('/signup')
-                }, 20000)
-              ) : (
-                null
+              {notFound && (
+                <React.Fragment>
+                  <p className="error__message">{notFound}</p>
+                  {setTimeout(() => {
+                    history.push('/signup');
+                  }, 8000)}
+                </React.Fragment>
               )}
               {error && <p className="error__message">{error}</p>}
               <form action="" className="login__form">
