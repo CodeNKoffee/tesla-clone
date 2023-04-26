@@ -8,7 +8,7 @@ const Landing = ({ user }) => {
       <div className="container">
         <div className="row">
           <div className="landing__info">
-            <div className="landing__info--txt">
+            {/* <div className="landing__info--txt">
               <h1 className="landing__title">
                 Model Y
               </h1>
@@ -17,8 +17,8 @@ const Landing = ({ user }) => {
                   View Inventory
                 </h4>
               </Link>
-            </div>
-            <div className="landing__btns">
+            </div> */}
+            {/* <div className="landing__btns">
               <Link to="/login">
                 <button className="btn landing__btn landing__btn--primary">
                   Order Now
@@ -29,7 +29,7 @@ const Landing = ({ user }) => {
                   Demo Drive
                 </button>
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

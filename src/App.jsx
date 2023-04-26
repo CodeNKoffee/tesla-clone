@@ -3,6 +3,8 @@ import './App.css';
 import Nav from './components/Nav';
 import Menu from './components/Menu';
 import Landing from './components/Landing';
+import LandingTitles from './components/ui/LandingTitles';
+import LandingBtns from './components/ui/LandingBtns';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Footer from './components/Footer';
@@ -49,6 +51,8 @@ function App() {
             <Nav isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
             {isMenuOpen && <Menu />}
             <Landing user={user} />
+            <LandingTitles />
+            <LandingBtns />
           </Route>
           <Route exact path="/login">
             {user ? (

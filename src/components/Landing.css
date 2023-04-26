@@ -23,6 +23,10 @@
 }
 
 .landing__info--txt {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
   text-align: center;
   flex: 1;
 }
@@ -36,6 +40,10 @@
 }
 
 .landing__btns {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 25px;
 }
