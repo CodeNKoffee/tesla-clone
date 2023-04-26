@@ -18,15 +18,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/userSlice';
 import { auth } from './firebase/init';
 import TeslaAccount from './components/TeslaAccount';
+import Loader from './components/ui/Loader';
 
 
 function App() {
   const user = useSelector(selectUser);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     auth.onAuthStateChanged((userAuth) => {
+      setLoading(false);
       if (userAuth) {
         // User is signed in
         dispatch(
@@ -55,28 +59,35 @@ function App() {
             <LandingBtns />
           </Route>
           <Route exact path="/login">
-            {user ? (
-                <Redirect to="/teslaaccount" />
-              ) : (
-                <Login />
-              )
-            }
+          {loading ? (
+            <Loader />
+          ) : (
+            user ? (
+              <Redirect to="/teslaaccount" />
+            ) : (
+              <Login />
+            )
+          )}
           </Route>
           <Route exact path="/signup">
             <Signup user={user} />
           </Route>
           <Route exact path="/teslaaccount">
-            {!user ?  (
-              <Redirect to="login" />
+            {loading ? (
+              <Loader />
             ) : (
-              <>
-                <TeslaAccount
-                  user={user}
-                  isMenuOpen={isMenuOpen}
-                  setIsMenuOpen={setIsMenuOpen}
-                />
-                {isMenuOpen && <Menu />}
-              </>
+              !user ?  (
+                <Redirect to="login" />
+              ) : (
+                <>
+                  <TeslaAccount
+                    user={user}
+                    isMenuOpen={isMenuOpen}
+                    setIsMenuOpen={setIsMenuOpen}
+                  />
+                  {isMenuOpen && <Menu />}
+                </>
+              )
             )}
           </Route>
         </Switch>

@@ -6,9 +6,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTimes, faGlobe } from '@fortawesome/free-solid-svg-icons'
+import { faTimes, faGlobe, faChargingStation } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faTimes, faGlobe)
+library.add(faTimes, faGlobe, faChargingStation)
 
 const container = document.getElementById('root');
 const root = createRoot(container);

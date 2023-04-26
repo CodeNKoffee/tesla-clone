@@ -3,7 +3,7 @@ import './Login.css';
 import CredentialsNav from './CredentialsNav';
 import { Link, useHistory } from 'react-router-dom';
 import { login } from '../features/userSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/init';
 
