@@ -87,7 +87,7 @@ const Login = () => {
                   <p className="error__message">{notFound}</p>
                   {setTimeout(() => {
                     history.push('/signup');
-                  }, 8000)}
+                  }, 5000) && <></>}
                 </React.Fragment>
               )}
               {error && <p className="error__message">{error}</p>}
