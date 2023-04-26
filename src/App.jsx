@@ -11,12 +11,10 @@ import {
   Switch,
   Route,
   Redirect,
-  useHistory,
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/userSlice';
 import { auth } from './firebase/init';
-import { signInWithEmailAndPassword } from 'firebase/auth';
 import TeslaAccount from './components/TeslaAccount';
 
 
@@ -50,18 +48,18 @@ function App() {
           <Route exact path="/">
             <Nav isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
             {isMenuOpen && <Menu />}
-            <Landing />
+            <Landing user={user} />
           </Route>
           <Route exact path="/login">
             {user ? (
                 <Redirect to="/teslaaccount" />
               ) : (
-                <Login />
+                <Login d />
               )
             }
           </Route>
           <Route exact path="/signup">
-            <Signup />
+            <Signup user={user} />
           </Route>
           <Route exact path="/teslaaccount">
             {!user ?  (

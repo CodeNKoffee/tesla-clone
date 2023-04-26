@@ -2,14 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './Login.css';
 import CredentialsNav from './CredentialsNav';
 import { Link, useHistory } from 'react-router-dom';
-import { login, selectUser } from '../features/userSlice';
+import { login } from '../features/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/init';
 
 const Login = () => {
   
-  const user = useSelector(selectUser)
   const [isEmpty, setIsEmpty] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

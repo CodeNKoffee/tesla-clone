@@ -63,7 +63,7 @@ const AccountNav = ({ isMenuOpen, setIsMenuOpen }) => {
             </Link>
           </li>
           <li className="account__nav--list">
-            <Link
+            <Link to=""
               onClick={logoutOfApp}
               className={isMenuOpen ?
                 "account__nav--link--hidden" : "account__nav--link"

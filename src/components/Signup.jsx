@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import CredentialsNav from './CredentialsNav';
-import userSlice, { login, selectUser } from '../features/userSlice';
+import { login } from '../features/userSlice';
 import { auth } from '../firebase/init';
 import './Signup.css';
 import {
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
+  updateProfile
 } from 'firebase/auth';
 
 const Signup = () => {
@@ -44,7 +45,6 @@ const Signup = () => {
   const handleConfirmPasswordChange = (event) => {
     setConfirmPassword(event.target.value);
   }
-  
 
   const handleNextClick = (event) => {
     event.preventDefault();
@@ -55,16 +55,17 @@ const Signup = () => {
   const handleSignUpClick = (event) => {
     event.preventDefault();
     (password === confirmPassword) ? (
-      createUserWithEmailAndPassword(auth, firstName, email, password)
+      createUserWithEmailAndPassword(auth, email, password)
         .then((userAuth) => {
-          userAuth.user.updateProfile({
+          return updateProfile(userAuth.user, {
             displayName: firstName,
-          })
+          }) 
           .then(() => {
             dispatch(login({
               email: userAuth.user.email,
               uid: userAuth.user.uid,
               displayName: firstName,
+              firstName: firstName,
             }))
             history.push('teslaaccount')
           })

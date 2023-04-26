@@ -2,7 +2,7 @@ import React from 'react';
 import './Landing.css';
 import { Link } from 'react-router-dom';
 
-const Landing = () => {
+const Landing = ({ user }) => {
   return (
     <section id="landing">
       <div className="container">
@@ -19,12 +19,12 @@ const Landing = () => {
               </Link>
             </div>
             <div className="landing__btns">
-              <Link to="/">
+              <Link to="/login">
                 <button className="btn landing__btn landing__btn--primary">
                   Order Now
                 </button>
               </Link>
-              <Link to="/">
+              <Link to="/login">
                 <button className="btn landing__btn">
                   Demo Drive
                 </button>
