@@ -54,7 +54,7 @@ function App() {
             {user ? (
                 <Redirect to="/teslaaccount" />
               ) : (
-                <Login d />
+                <Login />
               )
             }
           </Route>

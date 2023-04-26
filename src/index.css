@@ -175,3 +175,11 @@ footer {
   background-color: var(--tesla-black);
   color: var(--tesla-white);
 }
+
+.error__message {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--tesla-red);
+  text-align: center;
+  margin: 40px 0;
+}

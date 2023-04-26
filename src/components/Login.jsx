@@ -15,6 +15,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
+  const [error, setError] = useState('')
+  const [notFound, setNotFound] = useState('')
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -48,7 +50,19 @@ const Login = () => {
         }))
         history.push('/teslaaccount')
       })
-      .catch((error) => alert(error.message))
+      .catch((error) => {
+        if (error.code === 'auth/user-not-found') {
+          const notFoundMessage = 
+            "Your email or password is incorrect. Please try again or sign up for a new account."
+            setNotFound(notFoundMessage)
+        }
+        else {
+          const errorMessage =
+            "An error has occurred, please try again. If the error persists, please contact us at hatemthedev@gmail.com";
+          console.error(error);
+          setError(errorMessage);
+        }
+      })
   }
 
 
@@ -68,6 +82,17 @@ const Login = () => {
           <div className="row__column">
             <div className="login__info">
               <h1>Sign In</h1>
+              {notFound ? (
+                <p className="error__message">{notFound}</p>,
+                console.log(notFound),
+                setTimeout(() => {
+                  setNotFound(null)
+                  history.push('/signup')
+                }, 20000)
+              ) : (
+                null
+              )}
+              {error && <p className="error__message">{error}</p>}
               <form action="" className="login__form">
                 {showPassword ? (
                   <div className="login__form--field">
