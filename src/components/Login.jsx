@@ -6,6 +6,7 @@ import { login } from '../features/userSlice';
 import { useDispatch } from 'react-redux';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/init';
+import Loader from './ui/Loader';
 
 const Login = () => {
   
@@ -17,6 +18,7 @@ const Login = () => {
   const history = useHistory();
   const [error, setError] = useState('')
   const [notFound, setNotFound] = useState('')
+  const [loading, setLoading] = useState(true);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -40,9 +42,12 @@ const Login = () => {
   }
 
   const signIn = (e) => {
+    setLoading(true)
+    loading && <Loader />
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userAuth) => {
+        setLoading(false)
         dispatch(login({
           email: userAuth.user.email,
           uid: userAuth.user.uid,

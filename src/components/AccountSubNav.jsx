@@ -11,7 +11,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-const AccountSubNav = ({ user, isMenuOpen, setIsMenuOpen }) => {
+const AccountSubNav = ({ user, isMenuOpen }) => {
 
   const dispatch = useDispatch()
   const history = useHistory();
@@ -26,7 +26,6 @@ const AccountSubNav = ({ user, isMenuOpen, setIsMenuOpen }) => {
   }
 
   return (
-    <Router>
       <nav>
         <div id="sub__nav--container" className="nav__container">
           <h3>
@@ -42,9 +41,9 @@ const AccountSubNav = ({ user, isMenuOpen, setIsMenuOpen }) => {
                 Dashboard
               </Link>
             </li>
-            <Switch>
-              <Route exact path="/profile-settings">
-                <li className="nav__list">
+            <li className="nav__list">
+              <Switch>
+                <Route>
                   <Link to="/teslaaccount/profile-settings"
                     className={isMenuOpen ?
                       "nav__link--hidden" : "nav__link"
@@ -52,9 +51,9 @@ const AccountSubNav = ({ user, isMenuOpen, setIsMenuOpen }) => {
                   >
                     Profile Settings
                   </Link>
-                </li>
-              </Route>
-            </Switch>
+                </Route>
+              </Switch>
+            </li>
             <li className="nav__list">
               <Link to=""
                 onClick={logoutOfApp}
@@ -68,7 +67,6 @@ const AccountSubNav = ({ user, isMenuOpen, setIsMenuOpen }) => {
           </ul>
         </div>
       </nav>
-    </Router>
   );
 }
 
