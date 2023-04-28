@@ -44,7 +44,7 @@ const AccountSubNav = ({ user, isMenuOpen }) => {
             <li className="nav__list">
               <Switch>
                 <Route>
-                  <Link to="/teslaaccount/profile-settings"
+                  <Link to="/teslaaccount"
                     className={isMenuOpen ?
                       "nav__link--hidden" : "nav__link"
                     }
